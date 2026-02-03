@@ -5,7 +5,7 @@ import { checkSession } from "./lib/api/serverApi";
 const PUBLIC_PATHS = ["/sign-in", "/sign-up"];
 const PRIVATE_PATHS = ["/profile", "/notes"];
 
-export async function middleware(req: NextRequest) {
+export async function proxy(req: NextRequest) {
   const accessToken = req.cookies.get("accessToken")?.value;
   const refreshToken = req.cookies.get("refreshToken")?.value;
   const url = req.nextUrl.clone();
